@@ -1,8 +1,7 @@
 # Personal Website Content Checklist
 
-The imported website currently keeps the template author's content as visual
-placeholders. Replace items progressively; no section needs to be completed all
-at once.
+The website currently contains a clean, empty structure. Add items
+progressively; no section needs to be completed all at once.
 
 ## Identity
 
@@ -38,7 +37,6 @@ at once.
 
 ## Final publishing checks
 
-- Replace every remaining reference to the template author
 - Verify all external links
 - Review mobile layout
 - Add the correct analytics or site-verification settings, if wanted

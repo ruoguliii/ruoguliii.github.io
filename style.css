@@ -125,9 +125,9 @@ a:hover {
 
 .hero {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 245px;
+    grid-template-columns: minmax(0, 1fr) 380px;
     gap: 2.6rem;
-    align-items: start;
+    align-items: center;
     padding-bottom: 1.5rem;
     border-bottom: 1px solid var(--line);
 }
@@ -234,14 +234,18 @@ h1 span {
 .portrait-card img {
     display: block;
     width: 100%;
-    aspect-ratio: 4 / 5;
-    object-fit: cover;
+    height: auto;
+    object-fit: contain;
     border-radius: 8px;
 }
 
 .section {
     margin-top: 2.25rem;
     scroll-margin-top: 80px;
+}
+
+.empty-section {
+    min-height: 7rem;
 }
 
 .compact-section {

@@ -1,7 +1,7 @@
-# Ruogu Li — Personal Website
+# Ruogu Li's Personal Website
 
-Personal website under construction for `ruoguli.info`.
+Source files for Ruogu Li's personal website, published at
+[ruoguli.info](https://ruoguli.info).
 
-The current page structure and sample content are adapted from Zhenyu Wei's
-academic website and are being retained temporarily as placeholders. Personal
-details, publications, experience, and media will be replaced progressively.
+The homepage currently contains an empty content structure for News, Research,
+Honors, and Experience. Personal details and entries will be added progressively.
