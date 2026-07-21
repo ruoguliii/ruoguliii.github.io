@@ -35,15 +35,15 @@ body {
 }
 
 a {
-    color: var(--accent-deep);
+    color: #0b72b9;
     text-decoration: none;
-    border-bottom: 1px solid rgba(107, 114, 128, .22);
+    border-bottom: 1px solid rgba(11, 114, 185, .35);
     transition: color .18s ease, border-color .18s ease, background .18s ease;
 }
 
 a:hover {
-    color: var(--accent-dark);
-    border-color: var(--accent-dark);
+    color: #075985;
+    border-color: #075985;
 }
 
 .skip-link {
