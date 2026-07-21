@@ -5,12 +5,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Ruogu Li" />
-    <meta name="description" content="Ruogu Li's personal website." />
+    <meta name="description" content="Ruogu Li is a full-stack robotics researcher at the University of North Carolina at Chapel Hill." />
     <title>Ruogu Li</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@500;600&display=swap" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -31,7 +32,36 @@
         <main id="main" class="page">
             <section class="hero">
                 <div class="hero-copy">
-                    <h1>Ruogu Li</h1>
+                    <h1>Ruogu Li <span lang="zh-CN">李若谷</span></h1>
+                    <p class="bio">
+                        I am a full-stack robotics researcher at the University of North Carolina at Chapel Hill,
+                        advised by Prof. Mingyu Ding. At UNC, I have been fortunate to collaborate with Haochen Shi,
+                        Prof. C. Karen Liu, and Prof. Shuran Song. During my graduate studies, I worked with
+                        Prof. Sunil K. Agrawal and Prof. Hod Lipson. My research focuses on robotic systems,
+                        including hardware design and robot learning.
+                    </p>
+                    <div class="link-row" aria-label="Contact and profile links">
+                        <a href="mailto:lrg767681423@gmail.com" aria-label="Email Ruogu Li">
+                            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                            <span>Email</span>
+                        </a>
+                        <a href="https://github.com/ruoguliii" aria-label="Ruogu Li on GitHub">
+                            <i class="fa-brands fa-github" aria-hidden="true"></i>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/ruogu-li-46903b232/" aria-label="Ruogu Li on LinkedIn">
+                            <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="https://scholar.google.com/citations?user=UMzzfYwAAAAJ&amp;hl=zh-CN&amp;oi=sra" aria-label="Ruogu Li on Google Scholar">
+                            <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+                            <span>Google Scholar</span>
+                        </a>
+                        <button class="button-link" type="button" data-modal-open="wechat-modal" aria-label="Show Ruogu Li's WeChat QR code">
+                            <i class="fa-brands fa-weixin" aria-hidden="true"></i>
+                            <span>WeChat</span>
+                        </button>
+                    </div>
                 </div>
                 <figure class="portrait-card">
                     <img src="assets/ruogu-li.png" alt="Portrait of Ruogu Li" />
@@ -68,6 +98,13 @@
         </main>
     </div>
 
+    <div class="modal" id="wechat-modal" role="dialog" aria-modal="true" aria-label="WeChat QR code" aria-hidden="true">
+        <div class="modal-content">
+            <button class="close" type="button" data-modal-close aria-label="Close WeChat QR code">&times;</button>
+            <img src="assets/wechat-qr.jpg" alt="Ruogu Li's WeChat QR code" />
+        </div>
+    </div>
+
     <script>
         (() => {
             const minWidth = 960;
@@ -86,6 +123,42 @@
 
             window.addEventListener("load", scalePage);
             window.addEventListener("resize", scalePage);
+
+            let modalTrigger = null;
+
+            function closeModal(modal) {
+                modal.classList.remove("is-visible");
+                modal.setAttribute("aria-hidden", "true");
+                document.body.classList.remove("modal-open");
+                if (modalTrigger) modalTrigger.focus();
+            }
+
+            document.querySelectorAll("[data-modal-open]").forEach((button) => {
+                button.addEventListener("click", () => {
+                    const modal = document.getElementById(button.dataset.modalOpen);
+                    if (!modal) return;
+                    modalTrigger = button;
+                    modal.classList.add("is-visible");
+                    modal.setAttribute("aria-hidden", "false");
+                    document.body.classList.add("modal-open");
+                    modal.querySelector("[data-modal-close]").focus();
+                });
+            });
+
+            document.querySelectorAll(".modal").forEach((modal) => {
+                modal.addEventListener("click", (event) => {
+                    if (event.target === modal || event.target.hasAttribute("data-modal-close")) {
+                        closeModal(modal);
+                    }
+                });
+            });
+
+            document.addEventListener("keydown", (event) => {
+                if (event.key === "Escape") {
+                    const modal = document.querySelector(".modal.is-visible");
+                    if (modal) closeModal(modal);
+                }
+            });
         })();
     </script>
 </body>

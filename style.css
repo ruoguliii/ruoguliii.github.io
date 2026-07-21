@@ -125,7 +125,7 @@ a:hover {
 
 .hero {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 500px;
+    grid-template-columns: minmax(0, 1fr) 360px;
     gap: 2.6rem;
     align-items: center;
     padding-bottom: 1.5rem;
@@ -177,7 +177,7 @@ h1 span {
 .button-link {
     appearance: none;
     border: 1px solid var(--line-strong);
-    background: #fff;
+    background: rgba(255, 255, 255, .5);
     color: var(--accent-deep);
     border-radius: 8px;
     padding: .42rem .72rem;
@@ -186,6 +186,18 @@ h1 span {
     font-weight: 650;
     line-height: 1.2;
     cursor: pointer;
+}
+
+.link-row a,
+.link-row .button-link {
+    display: inline-flex;
+    align-items: center;
+    gap: .42rem;
+}
+
+.link-row i {
+    width: 1rem;
+    text-align: center;
 }
 
 .link-row a:hover,
@@ -657,7 +669,9 @@ time,
     position: fixed;
     inset: 0;
     z-index: 100;
-    background: rgba(15, 23, 42, .58);
+    background: rgba(31, 41, 55, .38);
+    -webkit-backdrop-filter: blur(9px);
+    backdrop-filter: blur(9px);
     padding: 1.5rem;
     overflow: auto;
 }
@@ -675,6 +689,10 @@ time,
     border-radius: 16px;
     border: 1px solid var(--line);
     box-shadow: 0 24px 70px rgba(15, 23, 42, .24);
+}
+
+body.modal-open {
+    overflow: hidden;
 }
 
 .modal-content.wide {
