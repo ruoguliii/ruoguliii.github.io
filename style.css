@@ -417,6 +417,7 @@ time,
 }
 
 .project-media {
+    position: relative;
     display: grid;
     place-items: center;
     min-height: 210px;
@@ -424,6 +425,43 @@ time,
     background: rgba(255, 255, 255, .62);
     border: 1px solid rgba(156, 163, 175, .32);
     border-radius: 10px;
+}
+
+.project-media--handroid {
+    background: #fff;
+}
+
+.project-media--handroid::before,
+.project-media--handroid::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    width: 11%;
+    background: #fff;
+    pointer-events: none;
+}
+
+.project-media--handroid::before {
+    left: 0;
+}
+
+.project-media--handroid::after {
+    right: 0;
+}
+
+.project-card--compact {
+    padding-block: .75rem;
+}
+
+.project-media--compact {
+    min-height: 0;
+}
+
+.project-media--compact img {
+    height: auto;
+    max-height: none;
 }
 
 .project-media img,
