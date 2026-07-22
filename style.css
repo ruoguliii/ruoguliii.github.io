@@ -516,16 +516,26 @@ time,
     margin-top: .82rem;
 }
 
-.project-links a {
+.project-links a,
+.project-status {
     display: inline-flex;
     align-items: center;
     padding: .3rem .62rem;
-    color: #0b72b9;
-    background: rgba(255, 255, 255, .55);
     border: 1px solid rgba(107, 114, 128, .38);
     border-radius: 10px;
     font-size: .84rem;
     font-weight: 700;
+}
+
+.project-links a {
+    color: #0b72b9;
+    background: rgba(255, 255, 255, .55);
+}
+
+.project-status--accepted {
+    color: #315b28;
+    background: #cfe8bd;
+    border-color: #b8d8a3;
 }
 
 .project-links a:hover {
