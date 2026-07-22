@@ -44,17 +44,17 @@
                         systems, including hardware design and robot learning.
                     </p>
                     <div class="link-row" aria-label="Contact and profile links">
-                        <a href="mailto:lrg767681423@gmail.com" aria-label="Email Ruogu Li">
+                        <button class="button-link" type="button" data-copy-email="lrg767681423@gmail.com" aria-label="Copy Ruogu Li's email address">
                             <i class="fa-solid fa-envelope" aria-hidden="true"></i>
                             <span>Email</span>
-                        </a>
+                        </button>
                         <a href="https://github.com/ruoguliii" aria-label="Ruogu Li on GitHub">
                             <i class="fa-brands fa-github" aria-hidden="true"></i>
                             <span>GitHub</span>
                         </a>
-                        <a href="https://www.linkedin.com/in/ruogu-li-46903b232/" aria-label="Ruogu Li on LinkedIn">
+                        <a href="https://www.linkedin.com/in/ruogu-li-46903b232/" aria-label="Ruogu Li on Linkedin">
                             <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
-                            <span>LinkedIn</span>
+                            <span>Linkedin</span>
                         </a>
                         <a href="https://scholar.google.com/citations?user=UMzzfYwAAAAJ&amp;hl=zh-CN&amp;oi=sra" aria-label="Ruogu Li on Google Scholar">
                             <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
@@ -69,6 +69,14 @@
                 <figure class="portrait-card">
                     <img src="assets/ruogu-li.png" alt="Portrait of Ruogu Li" />
                 </figure>
+                <div class="hero-divider" aria-hidden="true">
+                    <span class="divider-segment"></span>
+                    <span class="divider-slashes"><i></i><i></i><i></i></span>
+                    <span class="divider-segment"></span>
+                    <span class="divider-segment"></span>
+                    <span class="divider-slashes"><i></i><i></i><i></i></span>
+                    <span class="divider-segment"></span>
+                </div>
             </section>
 
             <section id="news" class="section empty-section">
@@ -187,6 +195,10 @@
         </div>
     </div>
 
+    <div class="copy-toast" id="email-copy-toast" role="status" aria-live="polite" aria-atomic="true">
+        Email copied to clipboard.
+    </div>
+
     <script>
         (() => {
             const minWidth = 960;
@@ -241,6 +253,45 @@
                     if (modal) closeModal(modal);
                 }
             });
+
+            const emailButton = document.querySelector("[data-copy-email]");
+            const emailToast = document.getElementById("email-copy-toast");
+            let toastTimer = null;
+
+            function showEmailToast(message) {
+                emailToast.textContent = message;
+                emailToast.classList.add("is-visible");
+                clearTimeout(toastTimer);
+                toastTimer = setTimeout(() => emailToast.classList.remove("is-visible"), 2200);
+            }
+
+            async function copyEmailAddress(email) {
+                if (navigator.clipboard && window.isSecureContext) {
+                    await navigator.clipboard.writeText(email);
+                    return;
+                }
+
+                const textArea = document.createElement("textarea");
+                textArea.value = email;
+                textArea.setAttribute("readonly", "");
+                textArea.style.position = "fixed";
+                textArea.style.opacity = "0";
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand("copy");
+                textArea.remove();
+            }
+
+            if (emailButton && emailToast) {
+                emailButton.addEventListener("click", async () => {
+                    try {
+                        await copyEmailAddress(emailButton.dataset.copyEmail);
+                        showEmailToast("Email copied to clipboard.");
+                    } catch {
+                        showEmailToast("Unable to copy email address.");
+                    }
+                });
+            }
         })();
     </script>
 </body>
