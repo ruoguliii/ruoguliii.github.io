@@ -25,7 +25,6 @@ progressively; no section needs to be completed all at once.
 - News
 - Research interests
 - Publications and project links
-- Education and professional experience
 
 ## Media
 
